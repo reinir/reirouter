@@ -8,7 +8,11 @@ by Reinir Puradinata
 Introduction
 ------------
 
-ReiRouter is a fast non-regex request router with a constant performance and exceptionally fast unknown routes resolution.
+ReiRouter is a fast non-regex request router with a constant performance.
+In other words, the worst-case time complexity of its route matching algorithm is O(1),
+unlike regex-based routers that have a worst-case time complexity of O(N), where N is the number of routes.
+
+On top of that, its unknown routes resolution is exceptionally fast, which makes it useful as a [DoS shield](#dos-shield).
 
 Number of routes | Known routes | Unknown routes
 ---------------- | ------------ | --------------
