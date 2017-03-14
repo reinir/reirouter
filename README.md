@@ -12,7 +12,7 @@ ReiRouter is a fast non-regex request router with a constant performance.
 In other words, the worst-case time complexity of its route matching algorithm is O(1),
 unlike regex-based routers that have a worst-case time complexity of O(N), where N is the number of routes.
 
-On top of that, its unknown routes resolution is exceptionally fast, which makes it useful as a [DoS shield](#dos-shield).
+On top of that, its unknown routes resolution is exceptionally fast, which makes it useful as a [Denial of Service shield](#dos-shield).
 
 Number of routes | Known routes | Unknown routes
 ---------------- | ------------ | --------------
@@ -38,7 +38,12 @@ Features
 * Scalable route matching algorithm (no performance degradation with more routes)
 * Exceptionally fast unknown routes resolution
 * No route-shadowing (see [Automatic route priority](#automatic-route-priority) below)
-* Can be used as denial-of-service shield (see [DoS shield](#dos-shield) below)
+* Can be used as Denial of Service shield (see [DoS shield](#dos-shield) below)
+
+Upcoming features
+-----------------
+
+* Optional patterns
 
 Getting started
 ---------------
