@@ -49,36 +49,36 @@ class Hello{
 }
 
 $router = new ReiRouter;
-$router->add('GET', '/hello/:name', 'Hello');
-$router->add('GET', '/hello/world', 'Hello', ['name'=>'World']);
+$router->add('/hello/:name', 'Hello');
+$router->add('/hello/world', 'Hello', 'GET', ['name'=>'World']);
 $router->execute();
 ```
 
-The 1st parameter defines the allowed HTTP methods for the route, which can be a string, an array of strings, or null to activate automatic method routing mode.
-
-```php
-$router->add('GET', '/hello/:name', 'Hello');
-$router->add(['GET','POST'], '/hello/:name', 'Hello');
-$router->add(null, '/hello/:name', 'Hello');
-```
-
-The 2nd parameter defines the route pattern.
+The 1st parameter defines the route pattern.
 Supported patterns are:
 * Literal such as `/items`
 * Placeholder such as `/:itemId`
 * Catch-all such as `/*all` if named, or simply `/*` if unnamed
 
 ```php
-$router->add('GET', '/items/:itemId/*', 'ItemHandler');
+$router->add('/items/:itemId/*', 'ItemHandler');
 ```
 
-The 3rd parameter defines the request handler, which has to be a class name if the route resolution uses `execute()`, like this example does.
+The 2nd parameter defines the request handler, which has to be a class name if the route resolution uses `execute()`, like this example does.
 For any other kind of request handler, such as an anonymous function, use `find()`.
+
+The optional 3rd parameter defines the allowed HTTP methods for the route, which can be a string, an array of strings, or null to activate automatic method routing mode.
+
+```php
+$router->add('/hello/:name', 'Hello', 'GET');
+$router->add('/hello/:name', 'Hello', ['GET','POST']);
+$router->add('/hello/:name', 'Hello', null);
+```
 
 The optional 4th parameter defines the default parameters.
 
 ```php
-$router->add('GET', '/hello/world', 'Hello', ['name'=>'World']);
+$router->add('/hello/world', 'Hello', 'GET', ['name'=>'World']);
 ```
 
 Automatic route priority
@@ -93,17 +93,17 @@ which is actually the cause of route-shadowing.
 As an example, this:
 
 ```php
-$router->add('GET', '/hello/*', 'Handler1');
-$router->add('GET', '/hello/:name', 'Handler2');
-$router->add('GET', '/hello/world', 'Handler3');
+$router->add('/hello/*', 'Handler1');
+$router->add('/hello/:name', 'Handler2');
+$router->add('/hello/world', 'Handler3');
 ```
 
 Is the same as this:
 
 ```php
-$router->add('GET', '/hello/world', 'Handler3');
-$router->add('GET', '/hello/:name', 'Handler2');
-$router->add('GET', '/hello/*', 'Handler1');
+$router->add('/hello/world', 'Handler3');
+$router->add('/hello/:name', 'Handler2');
+$router->add('/hello/*', 'Handler1');
 ```
 
 Because route resolution does not depend on the order of definition, you can order and group your routes based on any criteria you desire.
@@ -126,10 +126,10 @@ Example:
 //define your routes without request handlers to activate passthrough mode
 
 (new ReiRouter)
-    ->add(null, '/users')
-    ->add(null, '/user/:id')
-    ->add(null, '/articles/:id')
-    ->add(null, '/articles/:id/:title')
+    ->add('/users')
+    ->add('/user/:id')
+    ->add('/articles/:id')
+    ->add('/articles/:id/:title')
     ->execute();
 
 //unknown routes will never reach this point, they will get "404 Not Found" immediately and efficiently
