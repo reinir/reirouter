@@ -35,7 +35,7 @@ Each route has 9 placeholders with random prefix and suffix.
 Features
 --------
 
-* No performance degradation with more routes (see [Introduction](#introduction) above)
+* Scalable route matching algorithm (no performance degradation with more routes)
 * Exceptionally fast unknown routes resolution
 * No route-shadowing (see [Automatic route priority](#automatic-route-priority) below)
 * Can be used as denial-of-service shield (see [DoS shield](#dos-shield) below)
