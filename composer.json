@@ -1,0 +1,18 @@
+{
+    "name": "reinir/reirouter",
+    "description": "An exceptionally fast and scalable request router for high performance PHP applications",
+    "keywords": ["router","routing"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Reinir Puradinata",
+            "email": "reinir@gmail.com",
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "classmap": ["ReiRouter.php"]
+    }
+}
