@@ -21,7 +21,7 @@ Number of routes | Known routes | Unknown routes
 1000 routes | 55,947 req/s | 367,872 req/s
 
 As a comparison, the following is FastRoute performing the same benchmark on the same machine.
-FastRoute is actually faster in 1 case (see top left), but slower in all others.
+In fairness, FastRoute is actually faster in 1 case (see top left), but slower in all others.
 
 Number of routes | Known routes | Unknown routes
 ---------------- | ------------ | --------------
