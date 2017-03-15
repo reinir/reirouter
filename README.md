@@ -121,9 +121,10 @@ DoS shield
 ----------
 
 Regex-based request routers are usually slow when it comes to resolving unknown routes because all defined routes have to be evaluated before deciding that the route for a particular request doesn't exist.
+This fact can be exploited to cause denial of service by sending a large number of requests to random routes.
 This is exacerbated if the router supports optional patterns and expands them to individual routes.
 
-With a regex-based router, the more routes an application has, the more vulnerable it is to denial of service attacks.
+In short, with a regex-based router, the more routes an application has, the more vulnerable it is to denial of service attacks.
 
 ReiRouter can be used as a DoS shield to protect such application.
 All you have to do is define all routes with ReiRouter without request handlers to activate passthrough mode.
