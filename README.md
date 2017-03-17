@@ -43,7 +43,8 @@ Features
 Upcoming features
 -----------------
 
-* Optional patterns
+* Optional/alternate patterns
+* Router cache
 
 Getting started
 ---------------
